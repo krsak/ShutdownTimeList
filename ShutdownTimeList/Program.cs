@@ -10,7 +10,7 @@ namespace ShutdownTimeList
 			var dic = Enumerable.Range(0, 0).Select(x => new { Day = 0, Begin = DateTime.Now, End = DateTime.Now }).ToDictionary(x => x.Day);
 
 			var dt_month_begin = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-			var dt_month_end = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+			var dt_month_end = dt_month_begin.AddMonths(1);
 			var logs = System.Diagnostics.EventLog.GetEventLogs();
 			foreach(var log in logs) {
 				if (log.Log != "System") continue;
